@@ -62,7 +62,7 @@ defmodule OauthenatorApp.Auth do
   def request_url(conn) do
     port = if conn.port == 80 do "" else ":#{conn.port}" end
     query = if conn.query_string == "" do "" else "?#{conn.query_string}" end
-    "https://#{conn.host}#{port}#{conn.request_path}#{query}"
+    "#{conn.scheme}://#{conn.host}#{port}#{conn.request_path}#{query}"
   end
 
 end

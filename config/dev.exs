@@ -41,3 +41,11 @@ config :oauthenator_app, OauthenatorApp.Repo,
   database: "oauthenator_app_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :oauthenator, Oauthenator.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  database: "oauthenator_app_dev",
+  username: "postgres",
+  password: "postgres",
+  hostname: "localhost",
+  pool_size: 10

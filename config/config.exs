@@ -7,7 +7,7 @@ use Mix.Config
 
 # General application configuration
 config :oauthenator_app,
-  ecto_repos: [OauthenatorApp.Repo]
+  ecto_repos: [OauthenatorApp.Repo, Oauthenator.Repo]
 
 # Configures the endpoint
 config :oauthenator_app, OauthenatorApp.Endpoint,
