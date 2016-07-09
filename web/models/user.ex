@@ -17,14 +17,15 @@ defmodule OauthenatorApp.User do
   def changeset(model, params \\ :empty) do
     model
       |> cast(params, @required_fields, @optional_fields)
+      |> unique_constraint(:email)
   end
 
   def registration_changeset(model, params) do
     model
-    |> cast(params, ~w(name email), [])
     |> cast(params, ~w(new_password), [])
     |> validate_length(:new_password, min: 6, max: 100)
     |> put_pass_hash()
+    |> changeset(params)
   end
 
   defp put_pass_hash(changeset) do
