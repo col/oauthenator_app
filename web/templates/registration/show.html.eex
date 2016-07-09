@@ -1,0 +1,22 @@
+<h2>Show registration</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @registration.name %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @registration.email %>
+  </li>
+
+  <li>
+    <strong>New password:</strong>
+    <%= @registration.new_password %>
+  </li>
+
+</ul>
+
+<%= link "Back", to: page_path(@conn, :index) %>
