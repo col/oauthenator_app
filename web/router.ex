@@ -34,7 +34,8 @@ defmodule OauthenatorApp.Router do
     pipe_through :browser # Use the default browser stack
     pipe_through :protected
 
-    get "/authorize", OauthController, :index
+    get "/authorize", AuthorizationController, :new
+    post "/authorize", AuthorizationController, :create
   end
 
   # Other scopes may use custom stacks.

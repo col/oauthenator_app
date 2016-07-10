@@ -17,3 +17,11 @@ config :oauthenator_app, OauthenatorApp.Repo,
   database: "oauthenator_app_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :oauthenator, Oauthenator.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: "postgres",
+  password: "postgres",
+  database: "oauthenator_app_test",
+  hostname: "localhost",
+  pool: Ecto.Adapters.SQL.Sandbox

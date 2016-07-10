@@ -14,7 +14,7 @@ defmodule OauthenatorApp.User do
   @required_fields ~w(name email password)
   @optional_fields ~w()
 
-  def changeset(model, params \\ :empty) do
+  def changeset(model, params \\ %{}) do
     model
       |> cast(params, @required_fields, @optional_fields)
       |> unique_constraint(:email)

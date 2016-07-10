@@ -1,6 +1,5 @@
 defmodule OauthenatorApp.RegistrationController do
   use OauthenatorApp.Web, :controller
-
   alias OauthenatorApp.User
 
   def new(conn, _params) do
