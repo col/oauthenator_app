@@ -5,7 +5,7 @@ defmodule OauthenatorApp.AuthorizationControllerTest do
 
   @user %User{name: "Test", email: "test@example.com", password: "12345"}
   @client %OauthClient{name: "Test Client", random_id: "ABCD1234", secret: "qwerasdf", allowed_grant_types: "{\"authorization_code\":true}"}
-  @params %{client_id: "ABCD1234", redirect_url: "http://www.example.com", type: "authorization_code", state: "", scope: ""}
+  @params %{client_id: "ABCD1234", redirect_url: "http://www.example.com", response_type: "authorization_code", state: "", scope: ""}
 
   setup do
     Ecto.Adapters.SQL.Sandbox.checkout(Oauthenator.Repo)
