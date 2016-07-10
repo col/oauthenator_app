@@ -2,6 +2,7 @@ defmodule AuthorizePlug do
   use Plug.Builder, log_on_halt: :debug
   use Oauthenator
   import Plug.Conn
+  import Ecto.Changeset
   alias OauthenatorApp.Authorization
 
   plug :check_params
@@ -13,7 +14,7 @@ defmodule AuthorizePlug do
 
   def check_client(conn, _) do
     authorization = conn.assigns.authorization
-    case Repo.get_by(OauthClient, random_id: authorization.client_id) do
+    case Repo.get_by(OauthClient, random_id: get_field(authorization, :client_id)) do
       nil ->
         conn |> send_resp(404, "Client not found") |> halt
       client ->
@@ -22,12 +23,12 @@ defmodule AuthorizePlug do
   end
 
   def check_params(conn, _opts) do
-    authorization = Authorization.new(auth_params(conn))
-    case Authorization.valid?(authorization) do
-      :ok ->
+    authorization = Authorization.changeset(%Authorization{}, auth_params(conn))
+    case authorization.valid? do
+      true ->
         assign(conn, :authorization, authorization)
-      {:error, errors} ->
-        IO.puts "Invalid request: #{inspect(errors)}"
+      false ->
+        IO.puts "Invalid request: #{inspect(authorization.errors)}"
         conn |> send_resp(400, "Invalid request") |> halt
     end
   end
