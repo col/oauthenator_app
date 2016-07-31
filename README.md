@@ -1,5 +1,14 @@
 # OauthenatorApp
 
+
+## Setup
+
+```
+mix ecto.create
+mix ecto.migrate
+mix oauthenator.create_client --name "OAuth2 Example" --authorization_code --redirect-url http://lvh.me:4000/auth/oauthenator/callback
+```
+
 To start your Phoenix app:
 
   * Install dependencies with `mix deps.get`

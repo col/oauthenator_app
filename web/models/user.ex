@@ -2,6 +2,8 @@ defmodule OauthenatorApp.User do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @derive {Poison.Encoder, only: [:name, :email]}
+
   schema "users" do
     field :name, :string
     field :email, :string

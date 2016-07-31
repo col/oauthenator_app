@@ -40,7 +40,9 @@ defmodule OauthenatorApp.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:comeonin, "~> 2.0"},
-      {:oauthenator, path: "../oauthenator"}
+      {:oauthenator, path: "../oauthenator"},
+      {:exgravatar, "~> 2.0.0"},
+      {:timex, "~> 2.2.1"}
    ]
   end
 

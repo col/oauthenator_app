@@ -2,7 +2,7 @@ defmodule OauthenatorApp.AuthorizationTest do
   use OauthenatorApp.ModelCase
   alias OauthenatorApp.Authorization
 
-  @valid_attrs %{client_id: "asdf", redirect_url: "qwer", response_type: "authorization_code"}
+  @valid_attrs %{client_id: "asdf", redirect_uri: "qwer", response_type: "authorization_code"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do
@@ -13,6 +13,6 @@ defmodule OauthenatorApp.AuthorizationTest do
   test "changeset with invalid attributes" do
     changeset = Authorization.changeset(%Authorization{}, @invalid_attrs)
     refute changeset.valid?
-  end 
+  end
 
 end
